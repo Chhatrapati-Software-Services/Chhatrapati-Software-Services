@@ -77,36 +77,38 @@ export default function App() {
 
   // Public Landing Page View
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'hidden' }}>
       <Header keepAliveStatus={keepAliveStatus} onTriggerPing={triggerPing} />
       
-      {/* Centered Shri Ram Emblem with Unshaped Red, Black & Pink Radial Glow Aura (Double Sized) */}
+      {/* Centered Shri Ram Emblem with Unshaped Red, Black & Pink Radial Glow Aura (Mobile Responsive) */}
       <div style={{
-        padding: '28px 0 8px 0',
+        padding: '20px 0 4px 0',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative'
+        position: 'relative',
+        maxWidth: '100%',
+        overflow: 'hidden'
       }}>
-        {/* Unshaped Soft Background Radial Glow Aura (Red, Black, Pink Blend) */}
+        {/* Unshaped Soft Background Radial Glow Aura */}
         <div style={{
           position: 'absolute',
-          width: '280px',
-          height: '140px',
+          width: 'min(280px, 85vw)',
+          height: '130px',
           background: 'radial-gradient(ellipse at center, rgba(239, 68, 68, 0.45) 0%, rgba(236, 72, 153, 0.3) 40%, rgba(15, 23, 42, 0.25) 70%, transparent 100%)',
           filter: 'blur(28px)',
           pointerEvents: 'none',
           zIndex: 0
         }} />
 
-        {/* Double-Sized Emblem Image (92px height) */}
+        {/* Responsive Emblem Image */}
         <img 
           src="/shri_ram_emblem.png" 
           alt="Shri Ram Emblem" 
           style={{
-            height: '92px',
+            height: 'clamp(64px, 12vw, 92px)',
             width: 'auto',
-            maxHeight: '100px',
+            maxHeight: '92px',
             objectFit: 'contain',
             position: 'relative',
             zIndex: 1,
@@ -115,7 +117,7 @@ export default function App() {
         />
       </div>
 
-      <main style={{ flexGrow: 1 }}>
+      <main style={{ flexGrow: 1, width: '100%' }}>
         <Hero />
         <Services />
         <Leadership />

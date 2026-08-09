@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section style={{
       position: 'relative',
-      padding: '60px 0 60px 0',
+      padding: '40px 0 60px 0',
       overflow: 'hidden'
     }}>
       {/* Subtle radial background glow */}
@@ -40,7 +40,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <h1 style={{ fontSize: '3.2rem', fontWeight: 900, lineHeight: 1.15, marginBottom: '24px', color: '#0F172A' }}>
+            <h1 className="hero-heading">
               Building <span className="gradient-text">Intelligent Software</span> for High-Growth Startups.
             </h1>
 

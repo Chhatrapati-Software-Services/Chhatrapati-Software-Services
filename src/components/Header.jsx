@@ -43,17 +43,18 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
         borderBottom: '1px solid #E2E8F0',
         boxShadow: '0 4px 14px rgba(15, 23, 42, 0.04)'
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '92px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
           
           {/* Prominent Official Brand Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 1 }}>
             <img 
               src="/logo.png" 
               alt="Chhatrapati Software Services" 
+              className="header-logo"
               style={{
-                height: '56px',
+                height: '48px',
                 width: 'auto',
-                maxWidth: '280px',
+                maxWidth: '260px',
                 objectFit: 'contain'
               }}
             />
@@ -80,8 +81,8 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
           </nav>
 
           {/* Right Action CTA & Mobile Hamburger Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <a href="#contact" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+            <a href="#contact" className="btn btn-primary header-cta-desktop" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
               <span>Get Started</span>
               <ArrowRight size={16} />
             </a>
@@ -94,8 +95,8 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
                 display: 'none',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '44px',
-                height: '44px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '10px',
                 background: '#F1F5F9',
                 border: '1px solid #CBD5E1',
@@ -152,6 +153,15 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
             >
               <Mail size={18} style={{ color: 'var(--color-orange)' }} />
               <span>Contact Us</span>
+            </a>
+            <a 
+              href="#contact" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="btn btn-primary"
+              style={{ padding: '12px', textAlign: 'center', marginTop: '4px' }}
+            >
+              <span>Get Started</span>
+              <ArrowRight size={16} />
             </a>
             <a 
               href="#admin" 
