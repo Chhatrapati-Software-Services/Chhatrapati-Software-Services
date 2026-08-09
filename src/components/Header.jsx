@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Database, ShieldCheck, Settings, Sparkles, RefreshCw, Copy, Check, ExternalLink, Zap, AlertCircle } from 'lucide-react';
+import { ShieldCheck, Settings, Sparkles, RefreshCw, Copy, Check, ExternalLink, Zap, AlertCircle } from 'lucide-react';
 import { getSupabaseCredentials, saveSupabaseCredentials, sendKeepAlivePing, getSqlSetupScript } from '../lib/supabase';
 
 export default function Header({ keepAliveStatus, onTriggerPing }) {
@@ -29,7 +29,7 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
 
   return (
     <>
-      {/* Top Banner (Techspot Style Maintenance / Engine Alert) */}
+      {/* Top Banner (Techspot Maintenance & Engine Notification) */}
       <div style={{
         background: 'var(--gradient-orange-banner)',
         color: '#FFFFFF',
@@ -59,29 +59,31 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
           
-          {/* Brand Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+          {/* Redesigned Brand Logo */}
+          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
             <div style={{
-              width: '42px',
-              height: '42px',
+              width: '44px',
+              height: '44px',
               borderRadius: '12px',
-              background: 'var(--gradient-brand)',
+              background: '#0F172A',
+              border: '1.5px solid #F97316',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#FFFFFF',
-              fontWeight: 'bold',
-              fontSize: '1.2rem',
-              boxShadow: '0 4px 14px rgba(249, 115, 22, 0.35)'
+              boxShadow: '0 4px 12px rgba(249, 115, 22, 0.25)',
+              position: 'relative'
             }}>
-              CSS
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="#F97316" strokeWidth="2" strokeLinejoin="round"/>
+                <circle cx="12" cy="12" r="3" fill="#F97316"/>
+              </svg>
             </div>
             <div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.15rem', color: '#0F172A', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                Chhatrapati <span className="gradient-text">Software</span>
+              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.2rem', color: '#0F172A', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Chhatrapati <span className="gradient-text">Software Services</span>
               </div>
-              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600 }}>
-                AI & Web Solutions for Startups
+              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 700 }}>
+                AI Solutions & Web Development
               </div>
             </div>
           </a>
@@ -95,13 +97,13 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
             <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Contact</a>
           </nav>
 
-          {/* Supabase Status Pill & Config Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {/* Supabase Status Pill (No Database Icon, No Backend Button) */}
+          <div>
             <div 
               onClick={() => setIsModalOpen(true)}
               className={`badge ${credentials.isConfigured ? 'badge-emerald' : 'badge-amber'}`}
-              style={{ cursor: 'pointer', padding: '6px 14px', fontSize: '0.82rem' }}
-              title="Click to configure Supabase backend credentials"
+              style={{ cursor: 'pointer', padding: '7px 16px', fontSize: '0.84rem' }}
+              title="Click to view or edit Supabase project settings"
             >
               <span style={{
                 width: '8px',
@@ -111,19 +113,10 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
                 boxShadow: credentials.isConfigured ? '0 0 8px var(--color-mint)' : '0 0 8px var(--color-amber)',
                 display: 'inline-block'
               }}></span>
-              <Database size={14} />
               <span>{credentials.isConfigured ? 'Supabase Active' : 'Supabase Setup Needed'}</span>
             </div>
-
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="btn btn-secondary btn-sm"
-              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
-            >
-              <Settings size={15} />
-              <span>Backend</span>
-            </button>
           </div>
+
         </div>
 
         {/* Supabase Configuration Modal */}
@@ -133,7 +126,7 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
                 <div>
                   <h3 style={{ fontSize: '1.4rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '10px', color: '#0F172A' }}>
-                    <Database style={{ color: 'var(--color-orange)' }} />
+                    <Settings style={{ color: 'var(--color-orange)' }} />
                     Supabase Project Settings
                   </h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
