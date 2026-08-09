@@ -40,8 +40,12 @@ export default function Footer() {
               Building intelligent software, AI/ML models, and scalable web solutions for startups worldwide.
             </p>
 
-            <div style={{ fontSize: '0.82rem', color: 'var(--color-orange-dark)', fontWeight: 700 }}>
+            <div style={{ fontSize: '0.82rem', color: 'var(--color-orange-dark)', fontWeight: 700, marginBottom: '4px' }}>
               Founder: Avdhut Salunkhe | Co-Founder: Tejas Madane
+            </div>
+
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontWeight: 600 }}>
+              ॥ योगः कर्मसु कौशलम् ॥
             </div>
           </div>
 

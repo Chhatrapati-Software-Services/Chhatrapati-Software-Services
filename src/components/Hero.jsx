@@ -27,6 +27,9 @@ export default function Hero() {
           {/* Left Hero Text */}
           <div>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              <div className="badge" style={{ background: 'var(--color-orange-light)', color: 'var(--color-orange-dark)', border: '1px solid var(--color-orange-border)', fontWeight: 700 }}>
+                <span>॥ योगः कर्मसु कौशलम् ॥</span>
+              </div>
               <div className="badge">
                 <Sparkles size={14} />
                 <span>AI & Machine Learning Solutions</span>
@@ -123,6 +126,7 @@ export default function Hero() {
                   <div><span style={{ color: '#FB923C' }}>const</span> company = <span style={{ color: '#FCD34D' }}>"Chhatrapati Software Services"</span>;</div>
                   <div><span style={{ color: '#FB923C' }}>const</span> founder = <span style={{ color: '#FCD34D' }}>"Avdhut Salunkhe"</span>;</div>
                   <div><span style={{ color: '#FB923C' }}>const</span> coFounder = <span style={{ color: '#FCD34D' }}>"Tejas Madane"</span>;</div>
+                  <div><span style={{ color: '#FB923C' }}>const</span> motto = <span style={{ color: '#FCD34D' }}>"योगः कर्मसु कौशलम्"</span>;</div>
                 </div>
 
                 <div style={{ background: 'rgba(249, 115, 22, 0.12)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(249, 115, 22, 0.3)' }}>

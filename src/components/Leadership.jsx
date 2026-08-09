@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Award, Terminal, Cpu, Lightbulb, Users, CheckCircle2 } from 'lucide-react';
+import { UserCheck, Award, Terminal, Cpu, Lightbulb, Users, CheckCircle2, Shield, HeartHandshake } from 'lucide-react';
 
 export default function Leadership() {
   const leaders = [
@@ -54,7 +54,7 @@ export default function Leadership() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', maxWidth: '960px', margin: '0 auto 48px auto' }}>
           {leaders.map((leader, idx) => (
             <div key={idx} className="glass-card" style={{ padding: '36px', position: 'relative', overflow: 'hidden' }}>
               
@@ -118,6 +118,37 @@ export default function Leadership() {
 
             </div>
           ))}
+        </div>
+
+        {/* Subtle Ethos & Cultural Heritage Accent Card */}
+        <div style={{
+          maxWidth: '960px',
+          margin: '0 auto',
+          padding: '24px 32px',
+          borderRadius: '16px',
+          background: 'var(--color-orange-light)',
+          border: '1px solid var(--color-orange-border)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '16px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <Shield size={24} style={{ color: 'var(--color-orange-dark)', flexShrink: 0 }} />
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--color-orange-dark)' }}>
+                ॥ कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ॥
+              </div>
+              <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                Inspired by timeless Indian ethos & Chhatrapati Shivaji Maharaj's legacy of duty, honor, and engineering perfection.
+              </div>
+            </div>
+          </div>
+
+          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0F172A', background: '#FFFFFF', padding: '6px 14px', borderRadius: '9999px', border: '1px solid var(--color-orange-border)' }}>
+            Excellence in Action
+          </div>
         </div>
 
       </div>
