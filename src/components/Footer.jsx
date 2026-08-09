@@ -1,5 +1,5 @@
 import React from 'react';
-import { Database, Heart, Shield, Sparkles } from 'lucide-react';
+import { Database, Lock, Shield } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -50,18 +50,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Architecture & Keep Alive */}
+          {/* Col 3: Architecture & Admin */}
           <div>
             <h4 style={{ color: '#0F172A', fontSize: '0.95rem', fontWeight: 700, marginBottom: '16px' }}>
               Supabase Keep-Alive Engine
             </h4>
-            <p style={{ fontSize: '0.85rem', lineHeight: 1.6, marginBottom: '12px' }}>
-              Designed to automatically send lightweight heartbeats to your Supabase instance on website load, bypassing free-tier 7-day cooling deactivations.
+            <p style={{ fontSize: '0.85rem', lineHeight: 1.6, marginBottom: '16px' }}>
+              Automated background engine keeps your free Supabase instance active 24/7. Admin panel handles keep-alive trail logs and leads.
             </p>
-            <div className="badge badge-emerald" style={{ fontSize: '0.78rem' }}>
-              <Database size={12} />
-              <span>100% Frontend Architecture</span>
-            </div>
+            
+            <a 
+              href="#admin" 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                background: 'var(--color-orange-light)',
+                border: '1px solid var(--color-orange-border)',
+                color: 'var(--color-orange-dark)',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                textDecoration: 'none'
+              }}
+            >
+              <Lock size={13} />
+              <span>Admin Portal Login</span>
+            </a>
           </div>
 
         </div>
@@ -82,8 +98,9 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: '20px' }}>
             <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Services</a>
             <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Leadership</a>
-            <a href="#keepalive" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Supabase Engine</a>
+            <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>MVP Estimator</a>
             <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Contact</a>
+            <a href="#admin" style={{ color: 'var(--color-orange-dark)', textDecoration: 'none', fontWeight: 700 }}>Admin Portal</a>
           </div>
         </div>
 

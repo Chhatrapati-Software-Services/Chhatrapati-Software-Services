@@ -60,12 +60,11 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
             <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Services</a>
             <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Leadership</a>
             <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>MVP Estimator</a>
-            <a href="#keepalive" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Supabase Engine</a>
             <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Contact</a>
           </nav>
 
           {/* Right Action CTA */}
-          <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <a href="#contact" className="btn btn-primary" style={{ padding: '11px 22px', fontSize: '0.92rem' }}>
               <span>Get Started</span>
               <ArrowRight size={16} />
