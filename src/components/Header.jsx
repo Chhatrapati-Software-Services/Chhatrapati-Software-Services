@@ -34,40 +34,41 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: 'rgba(255, 255, 255, 0.95)',
+        background: 'rgba(255, 255, 255, 0.96)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid #E2E8F0',
-        boxShadow: '0 2px 10px rgba(15, 23, 42, 0.03)'
+        boxShadow: '0 4px 14px rgba(15, 23, 42, 0.04)'
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '92px' }}>
           
-          {/* Official Brand Logo */}
+          {/* Prominent Official Brand Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
               src="/logo.png" 
               alt="Chhatrapati Software Services" 
               style={{
-                height: '42px',
+                height: '62px',
                 width: 'auto',
+                maxWidth: '320px',
                 objectFit: 'contain'
               }}
             />
           </a>
 
           {/* Desktop Nav */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
-            <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Services</a>
-            <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Leadership</a>
-            <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>MVP Estimator</a>
-            <a href="#keepalive" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Supabase Engine</a>
-            <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Contact</a>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Services</a>
+            <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Leadership</a>
+            <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>MVP Estimator</a>
+            <a href="#keepalive" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Supabase Engine</a>
+            <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Contact</a>
           </nav>
 
           {/* Right Action CTA */}
           <div>
-            <a href="#contact" className="btn btn-primary btn-sm" style={{ padding: '9px 18px', fontSize: '0.88rem' }}>
+            <a href="#contact" className="btn btn-primary" style={{ padding: '11px 22px', fontSize: '0.92rem' }}>
               <span>Get Started</span>
-              <ArrowRight size={15} />
+              <ArrowRight size={16} />
             </a>
           </div>
 

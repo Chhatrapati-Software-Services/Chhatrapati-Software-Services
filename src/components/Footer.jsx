@@ -19,7 +19,7 @@ export default function Footer() {
               <img 
                 src="/logo.png" 
                 alt="Chhatrapati Software Services" 
-                style={{ height: '36px', width: 'auto', objectFit: 'contain' }} 
+                style={{ height: '50px', width: 'auto', objectFit: 'contain' }} 
               />
             </div>
 
