@@ -6,12 +6,12 @@ export default function Footer() {
     <footer style={{
       background: '#FFFFFF',
       borderTop: '1px solid #E2E8F0',
-      padding: '64px 0 32px 0',
+      padding: '48px 0 32px 0',
       color: 'var(--text-muted)'
     }}>
       <div className="container">
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '40px', marginBottom: '48px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '36px', marginBottom: '40px' }}>
           
           {/* Col 1 */}
           <div>
@@ -19,7 +19,7 @@ export default function Footer() {
               <img 
                 src="/logo.png" 
                 alt="Chhatrapati Software Services" 
-                style={{ height: '50px', width: 'auto', objectFit: 'contain' }} 
+                style={{ height: '42px', width: 'auto', maxWidth: '200px', objectFit: 'contain' }} 
               />
             </div>
 
@@ -65,7 +65,7 @@ export default function Footer() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '6px 14px',
+                padding: '8px 16px',
                 borderRadius: '8px',
                 background: 'var(--color-orange-light)',
                 border: '1px solid var(--color-orange-border)',
@@ -95,7 +95,7 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} <strong>Chhatrapati Software Services (CSS)</strong>. All rights reserved.
           </div>
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div className="footer-links" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Services</a>
             <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>Leadership</a>
             <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 500 }}>MVP Estimator</a>

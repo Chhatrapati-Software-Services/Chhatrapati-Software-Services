@@ -60,10 +60,10 @@ export default function ContactForm() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '48px', maxWidth: '1080px', margin: '0 auto', alignItems: 'start' }}>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '32px', maxWidth: '1080px', margin: '0 auto', alignItems: 'start' }}>
           
           {/* Left Info Card */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card" style={{ padding: 'clamp(20px, 4vw, 36px)' }}>
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px', color: '#0F172A' }}>
               Chhatrapati Software Services
             </h3>
@@ -119,7 +119,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right Form */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card" style={{ padding: 'clamp(20px, 4vw, 36px)' }}>
             
             {status.success && (
               <div style={{
@@ -146,7 +146,7 @@ export default function ContactForm() {
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Your Name *
@@ -192,7 +192,7 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Company / Startup Name

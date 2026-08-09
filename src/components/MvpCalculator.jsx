@@ -38,8 +38,8 @@ export default function MvpCalculator() {
           </p>
         </div>
 
-        <div className="glass-card" style={{ padding: '40px', maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '40px' }}>
+        <div className="glass-card" style={{ padding: 'clamp(20px, 4vw, 40px)', maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="calculator-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '32px' }}>
             
             {/* Left Controls */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
@@ -49,7 +49,7 @@ export default function MvpCalculator() {
                 <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, marginBottom: '12px', color: '#0F172A' }}>
                   1. Select Product Type
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                <div className="option-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
                   {options.productTypes.map((pt) => (
                     <div
                       key={pt.id}
@@ -63,7 +63,7 @@ export default function MvpCalculator() {
                         transition: 'all 0.2s'
                       }}
                     >
-                      <div style={{ fontSize: '0.9rem', fontWeight: 700, color: productType === pt.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
+                      <div style={{ fontSize: '0.88rem', fontWeight: 700, color: productType === pt.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
                         {pt.name}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
@@ -92,18 +92,19 @@ export default function MvpCalculator() {
                         cursor: 'pointer',
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        gap: '12px'
                       }}
                     >
                       <div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 700, color: aiLevel === ai.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
+                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: aiLevel === ai.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
                           {ai.name}
                         </div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                           {ai.desc}
                         </div>
                       </div>
-                      <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--color-orange-dark)', fontWeight: 600 }}>
+                      <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--color-orange-dark)', fontWeight: 600, flexShrink: 0 }}>
                         +{ai.addWeeks} wk
                       </span>
                     </div>
@@ -132,9 +133,9 @@ export default function MvpCalculator() {
 
                 <div style={{ marginBottom: '24px' }}>
                   <div style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Estimated Timeframe</div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#F97316', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#F97316', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Clock size={28} />
-                    <span>{totalWeeks} - {totalWeeks + 1} Weeks</span>
+                    <span>{totalWeeks} - {totalWeeks + 1} Wks</span>
                   </div>
                 </div>
 
@@ -143,10 +144,10 @@ export default function MvpCalculator() {
                     <strong style={{ color: '#FFF' }}>Stack:</strong> React, Supabase, Tailwind, Modern JS
                   </div>
                   <div>
-                    <strong style={{ color: '#FFF' }}>Database:</strong> Supabase PostgreSQL (Frontend Direct + Auto Keep-Alive)
+                    <strong style={{ color: '#FFF' }}>Database:</strong> Supabase PostgreSQL
                   </div>
                   <div>
-                    <strong style={{ color: '#FFF' }}>Delivery:</strong> Production Ready, Clean Code, CI/CD Pipeline
+                    <strong style={{ color: '#FFF' }}>Delivery:</strong> Production Ready, Clean Code, CI/CD
                   </div>
                 </div>
               </div>
