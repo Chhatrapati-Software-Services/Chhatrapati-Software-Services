@@ -80,6 +80,41 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header keepAliveStatus={keepAliveStatus} onTriggerPing={triggerPing} />
       
+      {/* Centered Shri Ram Emblem with Unshaped Red, Black & Pink Radial Glow Aura (Double Sized) */}
+      <div style={{
+        padding: '28px 0 8px 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+      }}>
+        {/* Unshaped Soft Background Radial Glow Aura (Red, Black, Pink Blend) */}
+        <div style={{
+          position: 'absolute',
+          width: '280px',
+          height: '140px',
+          background: 'radial-gradient(ellipse at center, rgba(239, 68, 68, 0.45) 0%, rgba(236, 72, 153, 0.3) 40%, rgba(15, 23, 42, 0.25) 70%, transparent 100%)',
+          filter: 'blur(28px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+
+        {/* Double-Sized Emblem Image (92px height) */}
+        <img 
+          src="/shri_ram_emblem.png" 
+          alt="Shri Ram Emblem" 
+          style={{
+            height: '92px',
+            width: 'auto',
+            maxHeight: '100px',
+            objectFit: 'contain',
+            position: 'relative',
+            zIndex: 1,
+            filter: 'drop-shadow(0 4px 14px rgba(239, 68, 68, 0.6))'
+          }}
+        />
+      </div>
+
       <main style={{ flexGrow: 1 }}>
         <Hero />
         <Services />

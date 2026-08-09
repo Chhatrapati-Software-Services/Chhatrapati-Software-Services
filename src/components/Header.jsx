@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { ArrowRight, Settings, Copy, Check, ExternalLink, Zap } from 'lucide-react';
+import { 
+  ArrowRight, Settings, Copy, Check, ExternalLink, Zap, 
+  Layers, Users, Calculator, Mail, Menu, X, Lock, Sparkles 
+} from 'lucide-react';
 import { getSupabaseCredentials, saveSupabaseCredentials, sendKeepAlivePing, getSqlSetupScript } from '../lib/supabase';
 
 export default function Header({ keepAliveStatus, onTriggerPing }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copiedSql, setCopiedSql] = useState(false);
   
@@ -47,156 +51,116 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
               src="/logo.png" 
               alt="Chhatrapati Software Services" 
               style={{
-                height: '62px',
+                height: '56px',
                 width: 'auto',
-                maxWidth: '320px',
+                maxWidth: '280px',
                 objectFit: 'contain'
               }}
             />
           </a>
 
-          {/* Desktop Nav */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Services</a>
-            <a href="#leadership" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Leadership</a>
-            <a href="#estimator" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>MVP Estimator</a>
-            <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>Contact</a>
+          {/* Desktop Nav with Icons */}
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+            <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>
+              <Layers size={16} style={{ color: 'var(--color-orange-dark)' }} />
+              <span>Services</span>
+            </a>
+            <a href="#leadership" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>
+              <Users size={16} style={{ color: 'var(--color-blue)' }} />
+              <span>Leadership</span>
+            </a>
+            <a href="#estimator" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>
+              <Calculator size={16} style={{ color: 'var(--color-mint)' }} />
+              <span>MVP Estimator</span>
+            </a>
+            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', transition: 'color 0.2s' }}>
+              <Mail size={16} style={{ color: 'var(--color-orange)' }} />
+              <span>Contact</span>
+            </a>
           </nav>
 
-          {/* Right Action CTA */}
+          {/* Right Action CTA & Mobile Hamburger Button */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <a href="#contact" className="btn btn-primary" style={{ padding: '11px 22px', fontSize: '0.92rem' }}>
+            <a href="#contact" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
               <span>Get Started</span>
               <ArrowRight size={16} />
             </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="mobile-menu-btn"
+              style={{
+                display: 'none',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '44px',
+                height: '44px',
+                borderRadius: '10px',
+                background: '#F1F5F9',
+                border: '1px solid #CBD5E1',
+                color: '#0F172A',
+                cursor: 'pointer'
+              }}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
 
         </div>
 
-        {/* Supabase Configuration Modal */}
-        {isModalOpen && (
-          <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                <div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '10px', color: '#0F172A' }}>
-                    <Settings style={{ color: 'var(--color-orange)' }} />
-                    Supabase Project Settings
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-                    Frontend-only database connection & automated keep-alive parameters.
-                  </p>
-                </div>
-                <button 
-                  onClick={() => setIsModalOpen(false)}
-                  style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '1.5rem', cursor: 'pointer' }}
-                >
-                  &times;
-                </button>
-              </div>
-
-              {saveSuccess && (
-                <div style={{ padding: '10px 14px', background: 'var(--color-mint-light)', border: '1px solid #A7F3D0', borderRadius: '8px', color: 'var(--color-mint)', fontSize: '0.88rem', marginBottom: '16px' }}>
-                  {saveSuccess}
-                </div>
-              )}
-
-              <form onSubmit={handleSaveConfig} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
-                    Supabase Project URL
-                  </label>
-                  <input 
-                    type="url"
-                    placeholder="https://your-project-id.supabase.co"
-                    value={urlInput}
-                    onChange={(e) => setUrlInput(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: '8px',
-                      background: '#F8FAFC',
-                      border: '1px solid #CBD5E1',
-                      color: '#0F172A',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.9rem'
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
-                    Supabase Anon Key (Public)
-                  </label>
-                  <input 
-                    type="text"
-                    placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-                    value={keyInput}
-                    onChange={(e) => setKeyInput(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: '8px',
-                      background: '#F8FAFC',
-                      border: '1px solid #CBD5E1',
-                      color: '#0F172A',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.9rem'
-                    }}
-                  />
-                </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
-                  <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>
-                    Save Credentials
-                  </button>
-                  <button 
-                    type="button" 
-                    className="btn btn-secondary"
-                    onClick={() => {
-                      saveSupabaseCredentials('', '');
-                      setUrlInput('');
-                      setKeyInput('');
-                      setSaveSuccess('Credentials cleared!');
-                    }}
-                  >
-                    Reset
-                  </button>
-                </div>
-              </form>
-
-              <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-orange-dark)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Zap size={16} /> Supabase SQL Setup Generator
-                  </span>
-                  <button 
-                    onClick={handleCopySql}
-                    className="btn btn-secondary btn-sm"
-                    style={{ gap: '4px' }}
-                  >
-                    {copiedSql ? <Check size={14} color="var(--color-mint)" /> : <Copy size={14} />}
-                    <span>{copiedSql ? 'Copied!' : 'Copy SQL Schema'}</span>
-                  </button>
-                </div>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                  Paste this into your <a href="https://supabase.com/dashboard" target="_blank" rel="noreferrer" style={{ color: 'var(--color-orange)', fontWeight: 600 }}>Supabase SQL Editor <ExternalLink size={12} /></a> to automatically enable lead inquiries and keep-alive pings:
-                </p>
-                <pre style={{
-                  background: '#0F172A',
-                  padding: '12px',
-                  borderRadius: '8px',
-                  fontSize: '0.75rem',
-                  color: '#F97316',
-                  fontFamily: 'var(--font-mono)',
-                  maxHeight: '130px',
-                  overflowY: 'auto'
-                }}>
-                  {getSqlSetupScript()}
-                </pre>
-              </div>
-
-            </div>
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div style={{
+            background: '#FFFFFF',
+            borderBottom: '1px solid #E2E8F0',
+            padding: '20px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+            boxShadow: '0 10px 20px rgba(0,0,0,0.05)'
+          }}>
+            <a 
+              href="#services" 
+              onClick={() => setMobileMenuOpen(false)} 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', textDecoration: 'none', color: '#0F172A', fontWeight: 600 }}
+            >
+              <Layers size={18} style={{ color: 'var(--color-orange-dark)' }} />
+              <span>Services</span>
+            </a>
+            <a 
+              href="#leadership" 
+              onClick={() => setMobileMenuOpen(false)} 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', textDecoration: 'none', color: '#0F172A', fontWeight: 600 }}
+            >
+              <Users size={18} style={{ color: 'var(--color-blue)' }} />
+              <span>Leadership</span>
+            </a>
+            <a 
+              href="#estimator" 
+              onClick={() => setMobileMenuOpen(false)} 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', textDecoration: 'none', color: '#0F172A', fontWeight: 600 }}
+            >
+              <Calculator size={18} style={{ color: 'var(--color-mint)' }} />
+              <span>MVP Estimator</span>
+            </a>
+            <a 
+              href="#contact" 
+              onClick={() => setMobileMenuOpen(false)} 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', textDecoration: 'none', color: '#0F172A', fontWeight: 600 }}
+            >
+              <Mail size={18} style={{ color: 'var(--color-orange)' }} />
+              <span>Contact Us</span>
+            </a>
+            <a 
+              href="#admin" 
+              onClick={() => setMobileMenuOpen(false)} 
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', textDecoration: 'none', color: 'var(--color-orange-dark)', fontWeight: 700, background: 'var(--color-orange-light)', borderRadius: '8px' }}
+            >
+              <Lock size={18} />
+              <span>Admin Portal Login</span>
+            </a>
           </div>
         )}
       </header>

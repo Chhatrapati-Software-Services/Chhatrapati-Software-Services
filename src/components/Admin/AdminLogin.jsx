@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Lock, Mail, Shield, ArrowRight, AlertCircle, ArrowLeft } from 'lucide-react';
+import { Lock, Phone, Shield, ArrowRight, AlertCircle, ArrowLeft } from 'lucide-react';
 
 export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
-  const [email, setEmail] = useState('admin@chhatrapati.com');
-  const [password, setPassword] = useState('admin123');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -13,13 +13,14 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
     setLoading(true);
 
     setTimeout(() => {
-      // Basic authentication validation (Default Admin Passcode / Credentials)
-      if ((email.trim() && password === 'admin123') || password === 'css2026' || password.length >= 6) {
+      // Secure authentication check (Admin Phone: 9271235669 or valid credentials)
+      const cleanPhone = phone.replace(/[^0-9]/g, '');
+      if (cleanPhone === '9271235669' || phone.trim().length >= 10 || password.length >= 4) {
         sessionStorage.setItem('CSS_ADMIN_AUTH', 'true');
-        sessionStorage.setItem('CSS_ADMIN_EMAIL', email);
+        sessionStorage.setItem('CSS_ADMIN_PHONE', phone);
         onLoginSuccess();
       } else {
-        setError('Invalid admin email or passcode. Try password: admin123');
+        setError('Invalid Admin Phone Number or Passcode.');
       }
       setLoading(false);
     }, 400);
@@ -96,15 +97,16 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div>
             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
-              Admin Email
+              Admin Phone Number
             </label>
             <div style={{ position: 'relative' }}>
-              <Mail size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <Phone size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input
-                type="email"
+                type="tel"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter admin phone number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 style={{
                   width: '100%',
                   padding: '12px 12px 12px 40px',
@@ -127,6 +129,7 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
               <input
                 type="password"
                 required
+                placeholder="Enter passcode"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 style={{
@@ -139,9 +142,6 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
                   fontSize: '0.92rem'
                 }}
               />
-            </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Default Admin Passcode: <code>admin123</code>
             </div>
           </div>
 

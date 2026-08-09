@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArrowRight, Bot, Cpu, Sparkles, Code2, Database, ShieldCheck, Activity, Rocket } from 'lucide-react';
+import { ArrowRight, Bot, Cpu, Sparkles, Code2, Database, ShieldCheck, Activity, Rocket, Calculator, Brain } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section style={{
       position: 'relative',
-      padding: '80px 0 60px 0',
+      padding: '60px 0 60px 0',
       overflow: 'hidden'
     }}>
       {/* Subtle radial background glow */}
@@ -22,7 +22,7 @@ export default function Hero() {
       }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center' }}>
+        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center' }}>
           
           {/* Left Hero Text */}
           <div>
@@ -40,11 +40,11 @@ export default function Hero() {
               </div>
             </div>
 
-            <h1 style={{ fontSize: '3.4rem', fontWeight: 900, lineHeight: 1.15, marginBottom: '24px', color: '#0F172A' }}>
+            <h1 style={{ fontSize: '3.2rem', fontWeight: 900, lineHeight: 1.15, marginBottom: '24px', color: '#0F172A' }}>
               Building <span className="gradient-text">Intelligent Software</span> for High-Growth Startups.
             </h1>
 
-            <p style={{ fontSize: '1.18rem', color: 'var(--text-muted)', marginBottom: '36px', maxWidth: '580px', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', marginBottom: '36px', maxWidth: '580px', lineHeight: 1.6 }}>
               <strong>Chhatrapati Software Services (CSS)</strong> combines cutting-edge AI/ML, LLMs, RAG, and scalable full-stack engineering to convert visionary ideas into production-ready digital products.
             </p>
 
@@ -53,14 +53,14 @@ export default function Hero() {
                 <span>Start Your Project</span>
                 <ArrowRight size={18} />
               </a>
-              <a href="#keepalive" className="btn btn-secondary" style={{ padding: '14px 28px', fontSize: '1.02rem' }}>
-                <Database size={18} style={{ color: 'var(--color-orange)' }} />
-                <span>Supabase Engine</span>
+              <a href="#estimator" className="btn btn-secondary" style={{ padding: '14px 28px', fontSize: '1.02rem' }}>
+                <Calculator size={18} style={{ color: 'var(--color-orange)' }} />
+                <span>Estimate Project MVP</span>
               </a>
             </div>
 
             {/* Quick Metrics / Founders Pill */}
-            <div style={{
+            <div className="metrics-grid" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '16px',
@@ -68,20 +68,23 @@ export default function Hero() {
               borderTop: '1px solid var(--border-subtle)'
             }}>
               <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--color-orange-dark)' }}>
-                  AI / ML
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-orange-dark)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Brain size={20} />
+                  <span>AI / ML</span>
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>LLMs, RAG & Vision</div>
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--color-blue)' }}>
-                  Full-Stack
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-blue)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Code2 size={20} />
+                  <span>Full-Stack</span>
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>React, Node & Supabase</div>
               </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--color-mint)' }}>
-                  100%
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-mint)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Database size={20} />
+                  <span>100%</span>
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 500 }}>Frontend + DB Architecture</div>
               </div>
