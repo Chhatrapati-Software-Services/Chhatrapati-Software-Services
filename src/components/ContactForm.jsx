@@ -33,7 +33,6 @@ export default function ContactForm() {
       mode: res.mode
     });
 
-    // Reset form after 4 seconds
     setTimeout(() => {
       setFormData({
         name: '',
@@ -47,7 +46,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="section" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
+    <section id="contact" className="section" style={{ background: '#F1F5F9' }}>
       <div className="container">
         
         <div className="section-title">
@@ -65,7 +64,7 @@ export default function ContactForm() {
           
           {/* Left Info Card */}
           <div className="glass-card" style={{ padding: '36px' }}>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px', color: '#0F172A' }}>
               Chhatrapati Software Services
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '28px', lineHeight: 1.6 }}>
@@ -74,28 +73,28 @@ export default function ContactForm() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
               <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                   Founder & Owner
                 </div>
-                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-cyan)', marginTop: '2px' }}>
+                <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-orange-dark)', marginTop: '2px' }}>
                   Avdhut Salunkhe
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                   Co-Founder
                 </div>
-                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-violet)', marginTop: '2px' }}>
+                <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--color-blue)', marginTop: '2px' }}>
                   Tejas Madane
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                   Primary Focus
                 </div>
-                <div style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginTop: '2px' }}>
+                <div style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginTop: '2px', fontWeight: 600 }}>
                   AI/ML, Full-Stack Web Dev & Startup MVPs
                 </div>
               </div>
@@ -104,15 +103,15 @@ export default function ContactForm() {
             <div style={{
               padding: '16px',
               borderRadius: '12px',
-              background: 'rgba(56, 189, 248, 0.08)',
-              border: '1px solid rgba(56, 189, 248, 0.2)',
+              background: 'var(--color-orange-light)',
+              border: '1px solid var(--color-orange-border)',
               fontSize: '0.85rem',
-              color: 'var(--text-muted)',
+              color: 'var(--color-orange-dark)',
               display: 'flex',
               alignItems: 'center',
               gap: '10px'
             }}>
-              <Database size={20} style={{ color: 'var(--color-cyan)', flexShrink: 0 }} />
+              <Database size={20} style={{ color: 'var(--color-orange-dark)', flexShrink: 0 }} />
               <div>
                 <strong>Direct Frontend DB:</strong> Form data is transmitted straight to Supabase tables.
               </div>
@@ -126,9 +125,9 @@ export default function ContactForm() {
               <div style={{
                 padding: '16px',
                 borderRadius: '10px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid var(--color-emerald)',
-                color: 'var(--color-emerald)',
+                background: 'var(--color-mint-light)',
+                border: '1px solid #A7F3D0',
+                color: 'var(--color-mint)',
                 marginBottom: '24px',
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -149,7 +148,7 @@ export default function ContactForm() {
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Your Name *
                   </label>
                   <input
@@ -162,16 +161,16 @@ export default function ContactForm() {
                       width: '100%',
                       padding: '12px',
                       borderRadius: '8px',
-                      background: 'rgba(0, 0, 0, 0.3)',
-                      border: '1px solid var(--border-subtle)',
-                      color: '#FFF',
+                      background: '#F8FAFC',
+                      border: '1px solid #CBD5E1',
+                      color: '#0F172A',
                       fontSize: '0.92rem'
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Email Address *
                   </label>
                   <input
@@ -184,9 +183,9 @@ export default function ContactForm() {
                       width: '100%',
                       padding: '12px',
                       borderRadius: '8px',
-                      background: 'rgba(0, 0, 0, 0.3)',
-                      border: '1px solid var(--border-subtle)',
-                      color: '#FFF',
+                      background: '#F8FAFC',
+                      border: '1px solid #CBD5E1',
+                      color: '#0F172A',
                       fontSize: '0.92rem'
                     }}
                   />
@@ -195,7 +194,7 @@ export default function ContactForm() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Company / Startup Name
                   </label>
                   <input
@@ -207,16 +206,16 @@ export default function ContactForm() {
                       width: '100%',
                       padding: '12px',
                       borderRadius: '8px',
-                      background: 'rgba(0, 0, 0, 0.3)',
-                      border: '1px solid var(--border-subtle)',
-                      color: '#FFF',
+                      background: '#F8FAFC',
+                      border: '1px solid #CBD5E1',
+                      color: '#0F172A',
                       fontSize: '0.92rem'
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                     Service Required
                   </label>
                   <select
@@ -226,9 +225,9 @@ export default function ContactForm() {
                       width: '100%',
                       padding: '12px',
                       borderRadius: '8px',
-                      background: 'rgba(15, 23, 42, 0.9)',
-                      border: '1px solid var(--border-subtle)',
-                      color: '#FFF',
+                      background: '#F8FAFC',
+                      border: '1px solid #CBD5E1',
+                      color: '#0F172A',
                       fontSize: '0.92rem'
                     }}
                   >
@@ -242,7 +241,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
                   Project Description & Requirements
                 </label>
                 <textarea
@@ -254,9 +253,9 @@ export default function ContactForm() {
                     width: '100%',
                     padding: '12px',
                     borderRadius: '8px',
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    border: '1px solid var(--border-subtle)',
-                    color: '#FFF',
+                    background: '#F8FAFC',
+                    border: '1px solid #CBD5E1',
+                    color: '#0F172A',
                     fontSize: '0.92rem',
                     resize: 'vertical'
                   }}

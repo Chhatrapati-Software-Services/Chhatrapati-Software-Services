@@ -27,7 +27,6 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
     setTimeout(() => setCopiedSql(false), 2500);
   };
 
-  // Calculate time since last ping
   const formatLastPingTime = (isoString) => {
     if (!isoString) return 'No ping recorded yet';
     const date = new Date(isoString);
@@ -61,18 +60,18 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
                     width: '44px',
                     height: '44px',
                     borderRadius: '12px',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    border: '1px solid var(--color-emerald)',
+                    background: 'var(--color-mint-light)',
+                    border: '1px solid #A7F3D0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--color-emerald)'
+                    color: 'var(--color-mint)'
                   }}>
                     <Zap size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Engine Status</h3>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A' }}>Engine Status</h3>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500 }}>
                       Frontend Automated Background Heartbeat
                     </div>
                   </div>
@@ -85,42 +84,42 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
 
               {/* Live Monitor Card */}
               <div style={{
-                background: 'rgba(7, 9, 19, 0.85)',
+                background: '#F8FAFC',
                 borderRadius: '14px',
                 padding: '24px',
-                border: '1px solid var(--border-subtle)',
+                border: '1px solid #E2E8F0',
                 marginBottom: '24px'
               }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                   <div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                       Last Keep-Alive Ping
                     </div>
-                    <div style={{ fontSize: '1rem', fontWeight: 700, color: '#FFF', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <Clock size={16} style={{ color: 'var(--color-cyan)' }} />
+                    <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0F172A', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <Clock size={16} style={{ color: 'var(--color-orange-dark)' }} />
                       <span>{formatLastPingTime(keepAliveStatus?.timestamp)}</span>
                     </div>
                   </div>
 
                   <div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                       Response Latency
                     </div>
-                    <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-emerald)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-mint)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Activity size={16} />
                       <span>{keepAliveStatus?.latencyMs || 0} ms</span>
                     </div>
                   </div>
                 </div>
 
-                <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', fontSize: '0.85rem' }}>
+                <div style={{ padding: '12px', borderRadius: '8px', background: '#FFFFFF', border: '1px solid #E2E8F0', fontSize: '0.85rem' }}>
                   {keepAliveStatus?.success ? (
-                    <div style={{ color: 'var(--color-emerald)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ color: 'var(--color-mint)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <ShieldCheck size={16} />
                       <span>Ping acknowledged! Database activity timestamp refreshed.</span>
                     </div>
                   ) : (
-                    <div style={{ color: 'var(--color-amber)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ color: 'var(--color-amber)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <AlertTriangle size={16} />
                       <span>{keepAliveStatus?.error || 'Configure your Supabase URL in Header to ping live DB.'}</span>
                     </div>
@@ -146,8 +145,8 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
             {/* Right: Recent Ping Log Table */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Terminal size={16} style={{ color: 'var(--color-cyan)' }} />
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', color: '#0F172A' }}>
+                  <Terminal size={16} style={{ color: 'var(--color-orange-dark)' }} />
                   Recent Ping Trail Log
                 </h4>
                 <button 
@@ -155,28 +154,28 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
                   className="btn btn-secondary btn-sm"
                   style={{ fontSize: '0.78rem', gap: '4px' }}
                 >
-                  {copiedSql ? <Check size={12} color="var(--color-emerald)" /> : <Copy size={12} />}
+                  {copiedSql ? <Check size={12} color="var(--color-mint)" /> : <Copy size={12} />}
                   <span>{copiedSql ? 'Copied SQL' : 'SQL Table Generator'}</span>
                 </button>
               </div>
 
               <div style={{
-                background: 'rgba(7, 9, 19, 0.9)',
+                background: '#0F172A',
                 borderRadius: '12px',
-                border: '1px solid var(--border-subtle)',
+                border: '1px solid #334155',
                 maxHeight: '260px',
                 overflowY: 'auto',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.78rem'
               }}>
                 {pingHistory.length === 0 ? (
-                  <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-dim)' }}>
+                  <div style={{ padding: '24px', textAlign: 'center', color: '#94A3B8' }}>
                     No ping logs captured yet. Click "Trigger Keep-Alive Ping Now".
                   </div>
                 ) : (
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ borderBottom: '1px solid var(--border-subtle)', color: 'var(--text-muted)' }}>
+                      <tr style={{ borderBottom: '1px solid #334155', color: '#94A3B8' }}>
                         <th style={{ padding: '10px 14px' }}>Time</th>
                         <th style={{ padding: '10px 14px' }}>Status</th>
                         <th style={{ padding: '10px 14px' }}>Latency</th>
@@ -184,19 +183,19 @@ export default function KeepAliveWidget({ keepAliveStatus, onTriggerPing }) {
                     </thead>
                     <tbody>
                       {pingHistory.map((ping, idx) => (
-                        <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)' }}>
-                          <td style={{ padding: '10px 14px', color: 'var(--text-main)' }}>
+                        <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                          <td style={{ padding: '10px 14px', color: '#F8FAFC' }}>
                             {new Date(ping.timestamp).toLocaleTimeString()}
                           </td>
                           <td style={{ padding: '10px 14px' }}>
                             <span style={{
-                              color: ping.success ? 'var(--color-emerald)' : 'var(--color-amber)',
+                              color: ping.success ? '#34D399' : '#FBBF24',
                               fontWeight: 600
                             }}>
                               {ping.success ? '200 OK' : 'LOCAL/DEMO'}
                             </span>
                           </td>
-                          <td style={{ padding: '10px 14px', color: 'var(--color-cyan)' }}>
+                          <td style={{ padding: '10px 14px', color: '#F97316' }}>
                             {ping.latencyMs} ms
                           </td>
                         </tr>

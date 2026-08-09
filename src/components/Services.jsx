@@ -4,8 +4,9 @@ import { Bot, Code, Cpu, Database, Layout, Sparkles, Layers, Shield, Zap, Search
 export default function Services() {
   const services = [
     {
-      icon: <Bot size={32} style={{ color: 'var(--color-cyan)' }} />,
+      icon: <Bot size={32} style={{ color: 'var(--color-orange-dark)' }} />,
       badge: 'AI & ML Capabilities',
+      badgeClass: 'badge',
       title: 'Artificial Intelligence & Machine Learning',
       description: 'We develop state-of-the-art AI/ML solutions seamlessly integrated into your business workflows.',
       tags: ['LLMs', 'RAG Engine', 'NLP', 'Computer Vision', 'Predictive Analytics', 'AI Chatbots'],
@@ -17,8 +18,9 @@ export default function Services() {
       ]
     },
     {
-      icon: <Code size={32} style={{ color: 'var(--color-violet)' }} />,
+      icon: <Code size={32} style={{ color: 'var(--color-blue)' }} />,
       badge: 'Web & Custom Software',
+      badgeClass: 'badge-blue',
       title: 'Full-Stack Web & Software Engineering',
       description: 'Modern, high-performance web applications built with clean architecture and scalable codebases.',
       tags: ['React', 'JavaScript', 'Node.js', 'REST APIs', 'Supabase', 'Dashboards'],
@@ -30,8 +32,9 @@ export default function Services() {
       ]
     },
     {
-      icon: <Zap size={32} style={{ color: 'var(--color-emerald)' }} />,
+      icon: <Zap size={32} style={{ color: 'var(--color-mint)' }} />,
       badge: 'Startup Accelerator',
+      badgeClass: 'badge-emerald',
       title: 'Startup MVP & Product Acceleration',
       description: 'Transform your startup concept into a functional, investor-ready Minimum Viable Product fast.',
       tags: ['MVP Launch', 'Fast Iteration', 'Clean Architecture', 'User Centric'],
@@ -45,7 +48,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="section" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
+    <section id="services" className="section" style={{ background: '#F1F5F9' }}>
       <div className="container">
         
         <div className="section-title">
@@ -68,18 +71,18 @@ export default function Services() {
                   width: '64px',
                   height: '64px',
                   borderRadius: '16px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--color-orange-light)',
+                  border: '1px solid var(--color-orange-border)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
                   {service.icon}
                 </div>
-                <span className="badge" style={{ fontSize: '0.75rem' }}>{service.badge}</span>
+                <span className={service.badgeClass} style={{ fontSize: '0.75rem' }}>{service.badge}</span>
               </div>
 
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px', color: '#0F172A' }}>
                 {service.title}
               </h3>
 
@@ -88,13 +91,13 @@ export default function Services() {
               </p>
 
               <div style={{ marginBottom: '24px', flexGrow: 1 }}>
-                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '10px' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '10px' }}>
                   Key Solutions:
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {service.highlights.map((h, i) => (
                     <li key={i} style={{ fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                      <span style={{ color: 'var(--color-cyan)', marginTop: '2px' }}>✓</span>
+                      <span style={{ color: 'var(--color-orange-dark)', fontWeight: 'bold', marginTop: '2px' }}>✓</span>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -107,8 +110,10 @@ export default function Services() {
                     fontSize: '0.75rem',
                     padding: '4px 10px',
                     borderRadius: '6px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    color: 'var(--color-cyan)'
+                    background: 'var(--color-orange-light)',
+                    color: 'var(--color-orange-dark)',
+                    border: '1px solid var(--color-orange-border)',
+                    fontWeight: 600
                   }}>
                     #{tag}
                   </span>

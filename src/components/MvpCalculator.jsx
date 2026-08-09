@@ -4,7 +4,6 @@ import { Calculator, Sparkles, Clock, Layers, Cpu, ArrowRight } from 'lucide-rea
 export default function MvpCalculator() {
   const [productType, setProductType] = useState('saas');
   const [aiLevel, setAiLevel] = useState('rag');
-  const [timelineSpeed, setTimelineSpeed] = useState('express');
 
   const options = {
     productTypes: [
@@ -25,7 +24,7 @@ export default function MvpCalculator() {
   const totalWeeks = selectedProduct.weeks + selectedAi.addWeeks;
 
   return (
-    <section id="estimator" className="section" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
+    <section id="estimator" className="section" style={{ background: '#F1F5F9' }}>
       <div className="container">
         
         <div className="section-title">
@@ -47,7 +46,7 @@ export default function MvpCalculator() {
               
               {/* Product Type Selector */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text-main)' }}>
+                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, marginBottom: '12px', color: '#0F172A' }}>
                   1. Select Product Type
                 </label>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
@@ -58,13 +57,13 @@ export default function MvpCalculator() {
                       style={{
                         padding: '14px',
                         borderRadius: '10px',
-                        background: productType === pt.id ? 'rgba(56, 189, 248, 0.12)' : 'rgba(255, 255, 255, 0.03)',
-                        border: productType === pt.id ? '1px solid var(--color-cyan)' : '1px solid var(--border-subtle)',
+                        background: productType === pt.id ? 'var(--color-orange-light)' : '#F8FAFC',
+                        border: productType === pt.id ? '2px solid var(--color-orange-dark)' : '1px solid #E2E8F0',
                         cursor: 'pointer',
                         transition: 'all 0.2s'
                       }}
                     >
-                      <div style={{ fontSize: '0.9rem', fontWeight: 600, color: productType === pt.id ? 'var(--color-cyan)' : '#FFF' }}>
+                      <div style={{ fontSize: '0.9rem', fontWeight: 700, color: productType === pt.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
                         {pt.name}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
@@ -77,7 +76,7 @@ export default function MvpCalculator() {
 
               {/* AI Integration Level */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text-main)' }}>
+                <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, marginBottom: '12px', color: '#0F172A' }}>
                   2. AI / ML Integration Level
                 </label>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -88,8 +87,8 @@ export default function MvpCalculator() {
                       style={{
                         padding: '12px 16px',
                         borderRadius: '10px',
-                        background: aiLevel === ai.id ? 'rgba(168, 85, 247, 0.12)' : 'rgba(255, 255, 255, 0.03)',
-                        border: aiLevel === ai.id ? '1px solid var(--color-violet)' : '1px solid var(--border-subtle)',
+                        background: aiLevel === ai.id ? 'var(--color-orange-light)' : '#F8FAFC',
+                        border: aiLevel === ai.id ? '2px solid var(--color-orange-dark)' : '1px solid #E2E8F0',
                         cursor: 'pointer',
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -97,14 +96,14 @@ export default function MvpCalculator() {
                       }}
                     >
                       <div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: aiLevel === ai.id ? 'var(--color-violet)' : '#FFF' }}>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 700, color: aiLevel === ai.id ? 'var(--color-orange-dark)' : '#0F172A' }}>
                           {ai.name}
                         </div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                           {ai.desc}
                         </div>
                       </div>
-                      <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                      <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--color-orange-dark)', fontWeight: 600 }}>
                         +{ai.addWeeks} wk
                       </span>
                     </div>
@@ -116,13 +115,14 @@ export default function MvpCalculator() {
 
             {/* Right Summary Box */}
             <div style={{
-              background: 'rgba(7, 9, 19, 0.8)',
+              background: '#0F172A',
               borderRadius: '16px',
               padding: '28px',
-              border: '1px solid var(--border-glow)',
+              color: '#FFFFFF',
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
+              boxShadow: '0 10px 25px -5px rgba(15, 23, 42, 0.3)'
             }}>
               <div>
                 <div className="badge badge-emerald" style={{ marginBottom: '16px' }}>
@@ -131,14 +131,14 @@ export default function MvpCalculator() {
                 </div>
 
                 <div style={{ marginBottom: '24px' }}>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Estimated Timeframe</div>
-                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--color-cyan)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Estimated Timeframe</div>
+                  <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#F97316', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Clock size={28} />
                     <span>{totalWeeks} - {totalWeeks + 1} Weeks</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#CBD5E1' }}>
                   <div>
                     <strong style={{ color: '#FFF' }}>Stack:</strong> React, Supabase, Tailwind, Modern JS
                   </div>
@@ -151,7 +151,7 @@ export default function MvpCalculator() {
                 </div>
               </div>
 
-              <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
+              <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
                 <a href="#contact" className="btn btn-primary" style={{ width: '100%' }}>
                   <span>Request Custom Quote</span>
                   <ArrowRight size={16} />

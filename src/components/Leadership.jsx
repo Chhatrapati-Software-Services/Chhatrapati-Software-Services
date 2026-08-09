@@ -8,7 +8,9 @@ export default function Leadership() {
       role: 'Founder & Owner',
       tagline: 'AI & Machine Learning Specialist | Full-Stack Architect',
       initials: 'AS',
-      accentColor: 'var(--color-cyan)',
+      accentColor: 'var(--color-orange-dark)',
+      bgColor: 'var(--color-orange-light)',
+      borderColor: 'var(--color-orange-border)',
       bio: 'Pioneering intelligent AI/ML architectures and full-stack software solutions designed to give startups an unfair technology advantage.',
       skills: [
         'Artificial Intelligence & ML',
@@ -23,7 +25,9 @@ export default function Leadership() {
       role: 'Co-Founder',
       tagline: 'Software Engineer | Product & Solutions Lead',
       initials: 'TM',
-      accentColor: 'var(--color-violet)',
+      accentColor: 'var(--color-blue)',
+      bgColor: 'var(--color-blue-light)',
+      borderColor: '#BFDBFE',
       bio: 'Dedicated to turning complex tech requirements into intuitive, reliable, and high-performance software products.',
       skills: [
         'Software Development',
@@ -69,8 +73,8 @@ export default function Leadership() {
                   width: '68px',
                   height: '68px',
                   borderRadius: '20px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: `1px solid ${leader.accentColor}`,
+                  background: leader.bgColor,
+                  border: `1px solid ${leader.borderColor}`,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -78,16 +82,16 @@ export default function Leadership() {
                   fontSize: '1.5rem',
                   fontWeight: 800,
                   color: leader.accentColor,
-                  boxShadow: `0 0 20px ${leader.accentColor}33`
+                  boxShadow: `0 4px 12px ${leader.borderColor}`
                 }}>
                   {leader.initials}
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800 }}>{leader.name}</h3>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A' }}>{leader.name}</h3>
                   <div style={{ fontSize: '0.88rem', fontWeight: 700, color: leader.accentColor, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     {leader.role}
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500 }}>
                     Chhatrapati Software Services
                   </div>
                 </div>
@@ -98,7 +102,7 @@ export default function Leadership() {
               </p>
 
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#FFF', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0F172A', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Terminal size={15} style={{ color: leader.accentColor }} />
                   <span>Core Technical Focus:</span>
                 </div>
