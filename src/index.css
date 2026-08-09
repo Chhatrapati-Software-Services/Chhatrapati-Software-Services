@@ -1,15 +1,16 @@
 :root {
-  /* Warm Crisp Light Theme (Techspot Dashboard Palette) */
+  /* Warm Crisp Light Theme (CSS Brand Palette) */
   --bg-primary: #F8FAFC;
   --bg-secondary: #FFFFFF;
   --bg-card: #FFFFFF;
   --bg-card-hover: #FFFFFF;
-  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-warm: #FFF7ED;
   --border-subtle: #E2E8F0;
-  --border-glow: rgba(249, 115, 22, 0.35);
+  --border-glow: rgba(234, 88, 12, 0.35);
   
-  --color-orange: #F97316;
-  --color-orange-dark: #EA580C;
+  /* Brand Color Directives */
+  --color-orange: #EA580C;
+  --color-orange-dark: #C2410C;
   --color-orange-light: #FFF7ED;
   --color-orange-border: #FFEDD5;
 
@@ -22,11 +23,6 @@
   --color-amber: #D97706;
   --color-amber-light: #FEF3C7;
 
-  /* Accent Mappings */
-  --color-cyan: #EA580C;
-  --color-violet: #C2410C;
-  --color-emerald: #059669;
-
   --text-main: #0F172A;
   --text-muted: #475569;
   --text-dim: #94A3B8;
@@ -35,17 +31,15 @@
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Fira Code', monospace;
 
-  --gradient-brand: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #F59E0B 100%);
-  --gradient-orange-banner: linear-gradient(90deg, #EA580C 0%, #F97316 100%);
-  --gradient-dark: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  --gradient-brand: linear-gradient(135deg, #EA580C 0%, #F97316 50%, #F59E0B 100%);
+  --gradient-orange-banner: linear-gradient(90deg, #C2410C 0%, #EA580C 100%);
 
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
 
   --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-hover: 0 12px 28px -6px rgba(249, 115, 22, 0.18), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
-  --shadow-glow: 0 10px 25px -5px rgba(249, 115, 22, 0.25);
+  --shadow-hover: 0 12px 28px -6px rgba(234, 88, 12, 0.18), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
 }
 
 * {
@@ -69,12 +63,12 @@ body {
   min-height: 100vh;
   width: 100%;
   background-image: 
-    radial-gradient(at 100% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(234, 88, 12, 0.05) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.05) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
-/* Typography */
+/* Typography System with Fluid Clamp */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-main);
@@ -92,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-heading {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
   font-weight: 900;
   line-height: 1.15;
   margin-bottom: 24px;
@@ -110,38 +104,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card:hover {
-  border-color: rgba(249, 115, 22, 0.4);
+  border-color: rgba(234, 88, 12, 0.4);
   box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
 
-/* Buttons */
+/* Buttons with Minimum 44px Touch Targets */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
+  min-height: 44px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 1.2vw, 0.95rem);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.25s ease;
   border: none;
   text-decoration: none;
+  touch-action: manipulation;
 }
 
 .btn-primary {
   background: var(--gradient-brand);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
 .btn-primary:hover {
   opacity: 0.95;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45);
 }
 
 .btn-secondary {
@@ -158,6 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-sm {
   padding: 8px 16px;
+  min-height: 38px;
   font-size: 0.85rem;
 }
 
@@ -166,9 +163,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 9999px;
-  font-size: 0.8rem;
+  font-size: clamp(0.75rem, 1vw, 0.82rem);
   font-weight: 600;
   background: var(--color-orange-light);
   border: 1px solid var(--color-orange-border);
@@ -193,27 +190,27 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-blue);
 }
 
-/* Container */
+/* Fluid Container */
 .container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 32px);
   width: 100%;
 }
 
 .section {
-  padding: 80px 0;
+  padding: clamp(40px, 8vw, 80px) 0;
   position: relative;
 }
 
 .section-title {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 56px auto;
+  margin: 0 auto clamp(36px, 6vw, 56px) auto;
 }
 
 .section-title h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 14px;
   color: #0F172A;
@@ -221,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title p {
   color: var(--text-muted);
-  font-size: 1.08rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
 }
 
 /* Modal Overlay */
@@ -234,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 16px;
 }
 
 .modal-content {
@@ -243,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   max-width: 600px;
   width: 100%;
-  padding: 32px;
+  padding: clamp(20px, 5vw, 32px);
   box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.2);
   max-height: 90vh;
   overflow-y: auto;
@@ -251,7 +248,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
@@ -264,24 +262,27 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-orange);
 }
 
-/* Responsive Utilities & Media Queries */
+/* Responsive Media Queries Across 15 Devices */
+
+/* Landscape Mobile (568px, 667px, 844px, 896px landscape) */
+@media (max-height: 480px) and (orientation: landscape) {
+  .section {
+    padding: 32px 0 !important;
+  }
+  .modal-content {
+    max-height: 96vh !important;
+  }
+}
+
+/* Tablet & Mobile Breakpoints */
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
     gap: 36px !important;
   }
-  .section {
-    padding: 60px 0;
-  }
-  .section-title h2 {
-    font-size: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 16px !important;
-  }
   .desktop-nav {
     display: none !important;
   }
@@ -292,15 +293,31 @@ h1, h2, h3, h4, h5, h6 {
     display: flex !important;
   }
   .header-logo {
-    height: 38px !important;
-    max-width: 170px !important;
-  }
-  .hero-heading {
-    font-size: 2.1rem !important;
-    line-height: 1.25 !important;
+    height: clamp(34px, 8vw, 42px) !important;
+    max-width: clamp(140px, 45vw, 200px) !important;
   }
   .metrics-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-hero-group {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .btn-hero-group .btn {
+    width: 100% !important;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

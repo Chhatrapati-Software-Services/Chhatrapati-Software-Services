@@ -15,7 +15,7 @@ export default function Hero() {
         right: '10%',
         width: '500px',
         height: '500px',
-        background: 'radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, rgba(245, 158, 11, 0.04) 50%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(245, 158, 11, 0.04) 50%, transparent 70%)',
         filter: 'blur(50px)',
         pointerEvents: 'none',
         zIndex: 0
@@ -44,11 +44,11 @@ export default function Hero() {
               Building <span className="gradient-text">Intelligent Software</span> for High-Growth Startups.
             </h1>
 
-            <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', marginBottom: '36px', maxWidth: '580px', lineHeight: 1.6 }}>
+            <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.18rem)', color: 'var(--text-muted)', marginBottom: '36px', maxWidth: '580px', lineHeight: 1.6 }}>
               <strong>Chhatrapati Software Services (CSS)</strong> combines cutting-edge AI/ML, LLMs, RAG, and scalable full-stack engineering to convert visionary ideas into production-ready digital products.
             </p>
 
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+            <div className="btn-hero-group" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
               <a href="#contact" className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '1.02rem' }}>
                 <span>Start Your Project</span>
                 <ArrowRight size={18} />
@@ -94,7 +94,7 @@ export default function Hero() {
 
           {/* Right Hero Interactive Techspot Panel */}
           <div>
-            <div className="glass-card" style={{ padding: '32px', border: '1px solid #E2E8F0' }}>
+            <div className="glass-card" style={{ padding: 'clamp(20px, 4vw, 32px)', border: '1px solid #E2E8F0' }}>
               
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -118,7 +118,8 @@ export default function Hero() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '14px',
-                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.4)'
+                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.4)',
+                overflowX: 'auto'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#F97316', fontWeight: 600 }}>
                   <Bot size={18} />
@@ -133,7 +134,7 @@ export default function Hero() {
                 </div>
 
                 <div style={{ background: 'rgba(249, 115, 22, 0.12)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(249, 115, 22, 0.3)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#34D399', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#34D399', fontWeight: 600, flexWrap: 'wrap', gap: '6px' }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Activity size={15} /> Supabase Auto Keep-Alive: ACTIVE
                     </span>
@@ -159,7 +160,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+              <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.82rem', color: 'var(--text-muted)', flexWrap: 'wrap', gap: '8px' }}>
                 <span style={{ fontWeight: 600 }}>Founders: Avdhut Salunkhe & Tejas Madane</span>
                 <span style={{ color: 'var(--color-mint)', fontWeight: 700 }}>● Ready for Hire</span>
               </div>
