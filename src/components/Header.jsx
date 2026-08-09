@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Settings, Sparkles, RefreshCw, Copy, Check, ExternalLink, Zap, AlertCircle } from 'lucide-react';
+import { ArrowRight, Settings, Copy, Check, ExternalLink, Zap } from 'lucide-react';
 import { getSupabaseCredentials, saveSupabaseCredentials, sendKeepAlivePing, getSqlSetupScript } from '../lib/supabase';
 
 export default function Header({ keepAliveStatus, onTriggerPing }) {
@@ -29,24 +29,6 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
 
   return (
     <>
-      {/* Top Banner (Techspot Maintenance & Engine Notification) */}
-      <div style={{
-        background: 'var(--gradient-orange-banner)',
-        color: '#FFFFFF',
-        padding: '8px 16px',
-        fontSize: '0.82rem',
-        fontWeight: 600,
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 8px rgba(234, 88, 12, 0.2)'
-      }}>
-        <AlertCircle size={15} />
-        <span>Automated Supabase Keep-Alive Engine is <strong>ACTIVE</strong>. Preventing free-tier project cooling deactivation.</span>
-      </div>
-
       {/* Main Header */}
       <header style={{
         position: 'sticky',
@@ -59,7 +41,7 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
           
-          {/* Redesigned Brand Logo */}
+          {/* Brand Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
             <div style={{
               width: '44px',
@@ -97,24 +79,12 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
             <a href="#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600, fontSize: '0.92rem', transition: 'color 0.2s' }}>Contact</a>
           </nav>
 
-          {/* Supabase Status Pill (No Database Icon, No Backend Button) */}
+          {/* Right Action CTA */}
           <div>
-            <div 
-              onClick={() => setIsModalOpen(true)}
-              className={`badge ${credentials.isConfigured ? 'badge-emerald' : 'badge-amber'}`}
-              style={{ cursor: 'pointer', padding: '7px 16px', fontSize: '0.84rem' }}
-              title="Click to view or edit Supabase project settings"
-            >
-              <span style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: credentials.isConfigured ? 'var(--color-mint)' : 'var(--color-amber)',
-                boxShadow: credentials.isConfigured ? '0 0 8px var(--color-mint)' : '0 0 8px var(--color-amber)',
-                display: 'inline-block'
-              }}></span>
-              <span>{credentials.isConfigured ? 'Supabase Active' : 'Supabase Setup Needed'}</span>
-            </div>
+            <a href="#contact" className="btn btn-primary btn-sm" style={{ padding: '9px 18px', fontSize: '0.88rem' }}>
+              <span>Get Started</span>
+              <ArrowRight size={15} />
+            </a>
           </div>
 
         </div>
