@@ -15,25 +15,12 @@ export default function Footer() {
           
           {/* Col 1 */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '10px',
-                background: 'var(--gradient-brand)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#FFFFFF',
-                fontWeight: 'bold',
-                fontSize: '1rem',
-                boxShadow: '0 4px 10px rgba(249, 115, 22, 0.3)'
-              }}>
-                CSS
-              </div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', color: '#0F172A' }}>
-                Chhatrapati Software
-              </div>
+            <div style={{ marginBottom: '16px' }}>
+              <img 
+                src="/logo.png" 
+                alt="Chhatrapati Software Services" 
+                style={{ height: '36px', width: 'auto', objectFit: 'contain' }} 
+              />
             </div>
 
             <p style={{ fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '16px' }}>

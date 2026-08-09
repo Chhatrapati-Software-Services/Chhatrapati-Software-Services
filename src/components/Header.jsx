@@ -41,33 +41,17 @@ export default function Header({ keepAliveStatus, onTriggerPing }) {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
           
-          {/* Brand Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
-            <div style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '12px',
-              background: '#0F172A',
-              border: '1.5px solid #F97316',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(249, 115, 22, 0.25)',
-              position: 'relative'
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3L19 7V17L12 21L5 17V7L12 3Z" stroke="#F97316" strokeWidth="2" strokeLinejoin="round"/>
-                <circle cx="12" cy="12" r="3" fill="#F97316"/>
-              </svg>
-            </div>
-            <div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.2rem', color: '#0F172A', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                Chhatrapati <span className="gradient-text">Software Services</span>
-              </div>
-              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 700 }}>
-                AI Solutions & Web Development
-              </div>
-            </div>
+          {/* Official Brand Logo */}
+          <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img 
+              src="/logo.png" 
+              alt="Chhatrapati Software Services" 
+              style={{
+                height: '42px',
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
           </a>
 
           {/* Desktop Nav */}
