@@ -1,6 +1,6 @@
 # Chhatrapati Software Services (CSS)
 
-### AI/ML Solutions • Web & Software Development
+### AI/ML Solutions • Software Development
 
 Chhatrapati Software Services (CSS) is a technology company founded by **Avdhut U. Salunkhe** and co-founded by **Tejas Madane**, focused on building intelligent software solutions for startups.
 
